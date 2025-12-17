@@ -239,47 +239,18 @@ namespace 皇冠娱乐
 
         static async Task Main(string[] args)
         {
+            ini2025();
 
-
-              // 1. 构建 TronNet 的依赖注入容器
-           //   todo
-             // new ServiceCollection
-           //  Iser
-        var services  = new Microsoft.Extensions.DependencyInjection.ServiceCollection();
-
-        services.AddTronNet(x =>
-        {
-            x.Network = TronNetwork.TestNet;        // 使用 Shasta Testnet
-           //todo
-          //  x.FullNode = "https://api.shasta.trongrid.io";
-          // x.SolidityNode = "https://api.shasta.trongrid.io";
-         //   x.EventServer = "https://api.shasta.trongrid.io";
-        });
-
-        IServiceProvider provider = services.BuildServiceProvider();
-
-        string tronUsdtContractAddress = string.Empty;
-
-        // 2. 判断当前是否是 Shasta 测试网
-        // if (provider.GetService<TronNetOptions>().Network == TronNetwork.Shasta)
-       //todo TronNetwork.Shasta
-        if (provider.GetService<TronNetOptions>().Network == TronNetwork.TestNet)
-        {
-            tronUsdtContractAddress = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
-        }
-
-        Console.WriteLine("USDT Contract: " + tronUsdtContractAddress);
-
-        /**
-        初始化 Shasta Testnet
+            /**
+            初始化 Shasta Testnet
 
 判断当前网络是否是 Shasta
 
 设置对应的 USDT 合约地址
 */
-          //  _ = new TronNetwork(TronNetworkEnum.ShastaTestnet);
-         //   if (!TronNetwork.ApiUrl.Equals("https://api.shasta.trongrid.io"))
-        //        _tronUsdtContraAddress = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
+            //  _ = new TronNetwork(TronNetworkEnum.ShastaTestnet);
+            //   if (!TronNetwork.ApiUrl.Equals("https://api.shasta.trongrid.io"))
+            //        _tronUsdtContraAddress = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
             #region 读取本地文文件
             if (!System.IO.File.Exists("SlotMachine.json"))
             {
@@ -743,7 +714,7 @@ namespace 皇冠娱乐
                                 Log.Error("24小时平台提现无人审批,将余额返还给平台方,并给平台方法消息时出错:" + ex.Message);
                             }
                             ZuoDaoBot.SendMessageToZuoDaoAdminers(finance.CreatorId + finance.Remark);
-                        }                        
+                        }
                     }
 
                     //24小时达到1000USDT流水就返多少百分比
@@ -3934,13 +3905,13 @@ namespace 皇冠娱乐
                     {
 
 
- var transaction = await Transactions.CreateTransactionAsync("TTTTTX8kc1f12HexiiEWabE8u5fjhC62TT", "TTTC6FqoMWFwzk7mVrwwfBcUB1mDhYdTTT", 0.000001M, true);
-                     
-    
-                       // var transaction = await Transactions.CreateTransactionAsync("TTTTTX8kc1f12HexiiEWabE8u5fjhC62TT", "TTTC6FqoMWFwzk7mVrwwfBcUB1mDhYdTTT", 0.000001M, true);
-                     
-                     
-                     
+                        var transaction = await Transactions.CreateTransactionAsync("TTTTTX8kc1f12HexiiEWabE8u5fjhC62TT", "TTTC6FqoMWFwzk7mVrwwfBcUB1mDhYdTTT", 0.000001M, true);
+
+
+                        // var transaction = await Transactions.CreateTransactionAsync("TTTTTX8kc1f12HexiiEWabE8u5fjhC62TT", "TTTC6FqoMWFwzk7mVrwwfBcUB1mDhYdTTT", 0.000001M, true);
+
+
+
                         if (string.IsNullOrEmpty(transaction) || transaction?.Contains("Error") == true)
                         {
                             Log.Error("创建每分钟的HASH交易地址时出错:" + transaction);
@@ -5224,6 +5195,53 @@ namespace 皇冠娱乐
             }
         }
 
+        /**
+           初始化 Shasta Testnet
+
+判断当前网络是否是 Shasta
+
+设置对应的 USDT 合约地址
+*/
+        private static void ini2025()
+        {
+            try
+            {
+                // 1. 构建 TronNet 的依赖注入容器
+                //   todo
+                // new ServiceCollection
+                //  Iser
+                var services = new Microsoft.Extensions.DependencyInjection.ServiceCollection();
+
+                services.AddTronNet(x =>
+                {
+                    x.Network = TronNetwork.TestNet;        // 使用 Shasta Testnet
+                                                            //todo
+                                                            //  x.FullNode = "https://api.shasta.trongrid.io";
+                                                            // x.SolidityNode = "https://api.shasta.trongrid.io";
+                                                            //   x.EventServer = "https://api.shasta.trongrid.io";
+                });
+
+                IServiceProvider provider = services.BuildServiceProvider();
+
+                string tronUsdtContractAddress = string.Empty;
+
+                // 2. 判断当前是否是 Shasta 测试网
+                // if (provider.GetService<TronNetOptions>().Network == TronNetwork.Shasta)
+                //todo TronNetwork.Shasta
+                if (provider.GetService<TronNetOptions>().Network == TronNetwork.TestNet)
+                {
+                    tronUsdtContractAddress = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
+                }
+
+                Console.WriteLine("USDT Contract: " + tronUsdtContractAddress);
+
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
         //彩票换期
         public static async Task LotteryDraw(DataContext db, GameHistory? gameHistory, string storageJsonObj,
             string resultText, Platform platform, Message? drawMsg, string expect, string nextNum,
@@ -5363,7 +5381,7 @@ namespace 皇冠娱乐
                 }
             }
         }
-   
+
     }
 
     //六合彩
