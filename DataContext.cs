@@ -66,7 +66,7 @@ namespace 皇冠娱乐
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer($"server=DESKTOP-DTQ3RU9;Database=Casino;Persist Security Info=True;User ID=sa;password=XiaoYanYan88;TrustServerCertificate=true;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer($"server=localhost\\sqlexpress;Database=gasino;Persist Security Info=True;User ID=sa;password=XiaoYanYan88;TrustServerCertificate=true;MultipleActiveResultSets=true");
             base.OnConfiguring(optionsBuilder);
         }
     }

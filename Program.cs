@@ -5203,7 +5203,11 @@ namespace 皇冠娱乐
 设置对应的 USDT 合约地址
 */
         private static void ini2025()
-        {
+        {//https://api.telegram.org/bot8051236525:AAE83V3ovcRJqqnbGAXIjVtuHq9-N4wBPpg/getUpdates
+            String chatId = "-1002436662507";
+            String botToken = "8051236525:AAE83V3ovcRJqqnbGAXIjVtuHq9-N4wBPpg";
+            var botHelper = new TelegramBotHelper(botToken, chatId);
+              botHelper.SendStartupMessageAsync();
             try
             {
                 // 1. 构建 TronNet 的依赖注入容器
