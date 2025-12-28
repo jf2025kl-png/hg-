@@ -33,7 +33,15 @@ public class Transactions
         _tronClient = tronClient;
     }
 
-
+    /*
+     var transaction = await Transactions.CreateTransactionAsync("TTTTTX8kc1f12HexiiEWabE8u5fjhC62TT", "TTTC6FqoMWFwzk7mVrwwfBcUB1mDhYdTTT", 0.000001M, true);
+                                               
+                                                var signedTransaction = Transactions.SignTransaction(transaction!, Program._tronPrivateKey);
+                                                var broadcast = await Transactions.BroadcastTransactionAsync(signedTransaction);
+   
+        var broadcast = await Transactions.BroadcastTransactionAsync(signedTransaction);
+                                              
+     */
     public static async Task<string> BroadcastTransactionAsync(object signedTransaction)
     {
         if (signedTransaction is Transaction transaction)
@@ -61,12 +69,19 @@ public class Transactions
     }
 
     /**
+     * 
+     var transaction = await Transactions.CreateTransactionAsync("TTTTTX8kc1f12HexiiEWabE8u5fjhC62TT", "TTTC6FqoMWFwzk7mVrwwfBcUB1mDhYdTTT", 0.000001M, true);
+                                               
+                                                var signedTransaction = Transactions.SignTransaction(transaction!, Program._tronPrivateKey);
+                                                var broadcast = await Transactions.BroadcastTransactionAsync(signedTransaction);
+                                              
+   调用方法返范例
      *                          var transaction = await Transactions.CreateTransactionAsync("TTTTTX8kc1f12HexiiEWabE8u5fjhC62TT", "TTTC6FqoMWFwzk7mVrwwfBcUB1mDhYdTTT", 
      *                          0.000001M, true);
      *                          
      *                          '
      *                          
-     */                          
+     */
     public static async Task<string?> CreateTransactionAsync(string from, string to, decimal amountTrx, bool v4)
     {
         // 初始化 DI
@@ -101,8 +116,16 @@ public class Transactions
         return "交易已创建";
 
     }
-
-    public static object SignTransaction(string v, string tronPrivateKey)
+    /**
+     var transaction = await Transactions.CreateTransactionAsync("TTTTTX8kc1f12HexiiEWabE8u5fjhC62TT", "TTTC6FqoMWFwzk7mVrwwfBcUB1mDhYdTTT", 0.000001M, true);
+                                               
+                                                var signedTransaction = Transactions.SignTransaction(transaction!, Program._tronPrivateKey);
+                                                var broadcast = await Transactions.BroadcastTransactionAsync(signedTransaction);
+   
+     *   var signedTransaction = Transactions.SignTransaction(transaction!, Program._tronPrivateKey);
+                                              
+     */
+    public static object SignTransaction(string transaction, string tronPrivateKey)
     {
         throw new NotImplementedException();
     }
