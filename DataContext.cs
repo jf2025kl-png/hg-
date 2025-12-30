@@ -66,7 +66,16 @@ namespace 皇冠娱乐
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer($"server=localhost\\sqlexpress;Database=gasino;Persist Security Info=True;User ID=sa;password=XiaoYanYan88;TrustServerCertificate=true;MultipleActiveResultSets=true");
+            //  optionsBuilder.use
+            //  optionsBuilder.UseSqlServer($"server=localhost\\sqlexpress;Database=gasino;Persist Security Info=True;User ID=sa;password=XiaoYanYan88;TrustServerCertificate=true;MultipleActiveResultSets=true");
+            // MySQL 连接字符串示例
+            var connectionString = "server=localhost;port=3306;database=gasino;user=root;password=ppp000000;";
+
+            optionsBuilder.UseMySql(
+                connectionString,
+                new MySqlServerVersion(new Version(8, 0, 36)) // 指定 MySQL 版本
+            );
+
             base.OnConfiguring(optionsBuilder);
         }
     }

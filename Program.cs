@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using NBitcoin;
 using Newtonsoft.Json;
 using System.Globalization;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
@@ -5232,7 +5233,7 @@ namespace 皇冠娱乐
                 // 2. 判断当前是否是 Shasta 测试网
                 // if (provider.GetService<TronNetOptions>().Network == TronNetwork.Shasta)
                 //todo TronNetwork.Shasta
-                if (provider.GetService<TronNetOptions>().Network == TronNetwork.TestNet)
+                if (provider.GetService<TronNetOptions>()?.Network == TronNetwork.TestNet)
                 {
                     tronUsdtContractAddress = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
                 }

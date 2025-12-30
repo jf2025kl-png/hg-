@@ -23,6 +23,7 @@
     </PackageReference>
     <PackageReference Include="NBitcoin" Version="7.0.36" />
     <PackageReference Include="Nethereum.Web3" Version="4.20.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.12" />
     <PackageReference Include="Telegram.Bot" Version="20.0.0-alpha.1" />
     <PackageReference Include="TronNet" Version="0.2.0" />
