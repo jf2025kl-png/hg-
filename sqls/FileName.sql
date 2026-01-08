@@ -37,8 +37,5 @@ CREATE TABLE Game
     BetEndLimit DECIMAL(18,2) NOT NULL DEFAULT 1000,-- 下注截止限额，默认 1000
     BotApiToken NVARCHAR(200) NULL                 -- 机器人ApiToken
 );
-http://137.220.152.57:30001/  admin1 WNMkTMHsN3
-
-
-Data Source=161.248.15.142;User Id=sa;Password=R5kFYJgrDcDPgMZkOfj23EBnL;Initial Catalog=HxPay;Encrypt=True;TrustServerCertificate=True;Pooling=true;Min Pool Size=1;Max Pool Size=2000;
-pay_orders_202512
+ 
+ 
